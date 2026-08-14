@@ -180,10 +180,15 @@ h1, h2, h3, h4, p { margin: 0; }
   position: relative;
   overflow: hidden;
   background: var(--blue);
-  min-height: clamp(420px, 68vh, 620px);
+  width: 100%;
+  aspect-ratio: 1680 / 720;
+  max-height: 720px;
 }
 
-.hero-track { position: relative; height: 100%; min-height: inherit; }
+.hero-track {
+  position: absolute;
+  inset: 0;
+}
 
 .hero-slide {
   position: absolute;
@@ -197,15 +202,26 @@ h1, h2, h3, h4, p { margin: 0; }
 .hero-slide.is-active {
   opacity: 1;
   pointer-events: auto;
-  position: relative;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(10, 61, 145, .96) 0%, rgba(10, 61, 145, .78) 42%, rgba(10, 61, 145, .35) 100%),
-    var(--hero-img) center right / cover no-repeat;
+  overflow: hidden;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 31, 92, .52) 0%, rgba(0, 31, 92, .18) 42%, rgba(0, 31, 92, .04) 72%, transparent 100%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -1265,7 +1281,12 @@ h1, h2, h3, h4, p { margin: 0; }
   .orcamento-card,
   .footer-grid { grid-template-columns: 1fr; }
 
-  .hero-content { margin-left: 1rem; }
+  .hero {
+    aspect-ratio: auto;
+    min-height: 380px;
+    max-height: 480px;
+  }
+  .hero-content { margin-left: 1rem; padding: 2.2rem 0; }
   .hero-nav { display: none; }
   .btn-wa-header span { display: none; }
   .btn-wa-header { padding: .7rem; }
@@ -1282,4 +1303,9 @@ h1, h2, h3, h4, p { margin: 0; }
   .section { padding: 3rem 0; }
   .dept-card { width: 210px; height: 150px; }
   .offer-card { width: min(230px, 82vw); min-height: 340px; }
+  .hero {
+    min-height: 420px;
+    max-height: 520px;
+  }
+  .hero-content h1 { font-size: 1.7rem; }
 }
