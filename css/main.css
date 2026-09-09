@@ -537,8 +537,10 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .carousel-btn:hover { background: var(--blue-soft); }
 
-/* Tradition */
-.tradition { background: var(--bg-soft); padding-top: 3.5rem; }
+/* Instagram */
+.instagram-feed {
+  background: var(--bg-soft);
+}
 .tradition-grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
