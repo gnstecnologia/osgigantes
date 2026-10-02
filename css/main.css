@@ -1339,15 +1339,21 @@ h1, h2, h3, h4, p { margin: 0; }
   .benefit-row,
   .experience-grid,
   .form-row,
-  .delivery-collage,
+  .delivery-collage { grid-template-columns: 1fr; }
+
   .photo-mosaic {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-    grid-auto-rows: 200px;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: 126px 126px 126px 132px;
+    gap: .35rem;
+    padding: .35rem;
   }
   .photo-mosaic img:first-child {
-    grid-column: auto;
-    grid-row: auto;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  .photo-mosaic img:nth-child(6) {
+    grid-column: 1 / -1;
+    grid-row: 4;
   }
 
   .section { padding: 3rem 0; }
